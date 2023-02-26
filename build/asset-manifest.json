@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.dc5f1796.css",
+    "main.js": "/static/js/main.5e309c79.js",
+    "static/media/python_logo.png": "/static/media/python_logo.dc2cf0b66115c81c9454.png",
+    "static/media/code.png": "/static/media/code.c49121f82d81181663f2.png",
+    "static/media/me.jpeg": "/static/media/me.73ffcb9ceb2b8f80fcfb.jpeg",
+    "index.html": "/index.html",
+    "main.dc5f1796.css.map": "/static/css/main.dc5f1796.css.map",
+    "main.5e309c79.js.map": "/static/js/main.5e309c79.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dc5f1796.css",
+    "static/js/main.5e309c79.js"
+  ]
+}
