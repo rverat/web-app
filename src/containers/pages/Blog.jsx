@@ -19,7 +19,8 @@ function Blog({
     next,
     previous,
 }){
-  
+  console.log("print blog ok:" + posts)
+
     useEffect(()=>{
         window.scrollTo(0,0)
         get_categories()

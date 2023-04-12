@@ -102,7 +102,7 @@ function Header(){
               Learn for <span> </span>
               <div className='inline-flex' style={{color: 'orange'}}>
               <Typewriter
-                        words={['Create', 'Solve', 'Share with others']}
+                        words={['Create', 'Solve', 'Share']}
                         loop={0}
                         cursor
                         

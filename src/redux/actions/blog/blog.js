@@ -23,7 +23,7 @@ export const get_author_blog_list = () => async dispatch => {
     try{
 
         const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/blog/author_list`, config)
-
+       
         if(res.status === 200){
             dispatch({
                 type: GET_AUTHOR_BLOG_LIST_SUCCESS,
@@ -81,7 +81,12 @@ export const get_blog_list = () => async dispatch => {
 
     try{
 
+        console.log("HOST p" + process.env.REACT_APP_API_URL)
         const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/blog/list`, config)
+
+        console.log("print data actions p: " + res.status)
+
+        console.log("print data actions p res: " + JSON.stringify(res.data))
 
         if(res.status === 200){
             dispatch({

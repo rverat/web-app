@@ -1,21 +1,21 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-#from rest_framework import permissions
+from rest_framework import permissions
 from slugify import slugify
 from .models import Post, ViewCount
 from apps.category.models import Category
 
 from .serializers import PostSerializer, PostListSerializer
 from .pagination import SmallSetPagination, MediumSetPagination, LargeSetPagination
-#from .permissions import IsPostAuthorOrReadOnly,AuthorPermission
+from .permissions import IsPostAuthorOrReadOnly,AuthorPermission
 from django.db.models.query_utils import Q
 from rest_framework.parsers import MultiPartParser, FormParser
 
 # Create your views here.
 
 class BlogListView(APIView):
-    #permission_classes = (permissions.AllowAny,)
+    permission_classes = (permissions.AllowAny,)
     def get(self, request, format=None):
         if Post.postobjects.all().exists():
 
@@ -31,7 +31,7 @@ class BlogListView(APIView):
 
 
 class ListPostsByCategoryView(APIView):
-    #permission_classes = (permissions.AllowAny,)
+    permission_classes = (permissions.AllowAny,)
     def get(self, request, format=None):
         if Post.postobjects.all().exists():
 
@@ -73,7 +73,7 @@ class ListPostsByCategoryView(APIView):
 
 
 class PostDetailView(APIView):
-    #permission_classes = (permissions.AllowAny,)
+    permission_classes = (permissions.AllowAny,)
     def get(self, request, slug, format=None):
         if Post.objects.filter(slug=slug).exists():
             
@@ -98,7 +98,7 @@ class PostDetailView(APIView):
 
 
 class SearchBlogView(APIView):
-    #permission_classes = (permissions.AllowAny,)
+    permission_classes = (permissions.AllowAny,)
     def get(self,request, format=None):
         search_term = request.query_params.get('s')
         matches = Post.postobjects.filter(
@@ -118,12 +118,14 @@ class SearchBlogView(APIView):
 
 
 class AuthorBlogListView(APIView):
-    #permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (permissions.IsAuthenticated,)
     def get(self, request, format=None):
 
         user = self.request.user
-
+        print(user)
         if Post.objects.filter(author=user).exists():
+
+            print("logged")
 
             posts = Post.objects.filter(author=user)
 
@@ -131,13 +133,17 @@ class AuthorBlogListView(APIView):
             results = paginator.paginate_queryset(posts, request)
             serializer = PostListSerializer(results, many=True)
 
+            print({'posts': serializer.data})
+
             return paginator.get_paginated_response({'posts': serializer.data})
+
+           
         else:
             return Response({'error':'No posts found'}, status=status.HTTP_404_NOT_FOUND)
 
 
 class EditBlogPostView(APIView):
-    #permission_classes = (IsPostAuthorOrReadOnly, )
+    permission_classes = (IsPostAuthorOrReadOnly, )
     parser_classes = [MultiPartParser, FormParser]
 
     def put(self, request, format=None):
@@ -186,7 +192,7 @@ class EditBlogPostView(APIView):
         return Response({'success': 'Post edited'})
 
 class DraftBlogPostView(APIView):
-    #permission_classes = (IsPostAuthorOrReadOnly, )
+    permission_classes = (IsPostAuthorOrReadOnly, )
     def put(self, request, format=None):
         data = self.request.data
         slug = data['slug']
@@ -200,7 +206,7 @@ class DraftBlogPostView(APIView):
 
 
 class PublishBlogPostView(APIView):
-    #permission_classes = (IsPostAuthorOrReadOnly, )
+    permission_classes = (IsPostAuthorOrReadOnly, )
     def put(self, request, format=None):
         data = self.request.data
         slug = data['slug']
@@ -213,7 +219,7 @@ class PublishBlogPostView(APIView):
         return Response({'success': 'Post edited'})
 
 class DeleteBlogPostView(APIView):
-    #permission_classes = (IsPostAuthorOrReadOnly, )
+    permission_classes = (IsPostAuthorOrReadOnly, )
     def delete(self, request, slug, format=None):
         
         post = Post.objects.get(slug=slug)
@@ -223,7 +229,7 @@ class DeleteBlogPostView(APIView):
         return Response({'success': 'Post edited'})
 
 class CreateBlogPostView(APIView):
-    #permission_classes = (AuthorPermission, )
+    permission_classes = (AuthorPermission, )
     def post(self, request, format=None):
         user = self.request.user
         Post.objects.create(author=user)

@@ -27,6 +27,12 @@ const solutions = [
     href: "/contacto",
     icon: IconThree,
   },
+  {
+    name: "Dashboard",
+    description: "Keep track of your growth",
+    href: "/dashboard",
+    icon: IconThree,
+  },
 ];
 
 function Navbar() {

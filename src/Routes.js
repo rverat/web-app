@@ -1,18 +1,18 @@
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom'
 import Error404 from 'containers/errors/Error404';
 import Home from 'containers/pages/Home';
-import Cases from 'containers/pages/Cases';
 
-import Services from 'containers/pages/Services';
 import About from 'containers/pages/About';
-import Careers from 'containers/pages/Careers';
 import Blog from 'containers/pages/Blog';
-import Contact from 'containers/pages/Contact';
 
 import { AnimatePresence } from 'framer-motion'
 import Category from 'containers/pages/Category';
 import Search from 'containers/pages/Search';
 import PostDetail from 'containers/pages/PostDetail';
+import Login from 'containers/pages/dashboard/Login';
+import BlogD from 'containers/pages/dashboard/BlogD';
+import Dashboard from 'containers/pages/dashboard/Dashboard';
+import EditPost from 'containers/pages/dashboard/EditPost';
 
 function AnimatedRoutes(){
 
@@ -31,7 +31,16 @@ function AnimatedRoutes(){
                     <Route path="/blog/:slug" element={<PostDetail />} />
                     <Route path="/s" element={<Search />} />
                     <Route path="/category/:slug" element={<Category />} />
-                    <Route path="/contacto" element={<Contact />} />
+
+                    {/* Dashboard */}
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/blogD" element={<BlogD />} />
+                    <Route path="/blogD/:slug" element={<EditPost />} />
+
+                    
+
+                    
                 </Routes>
         </AnimatePresence>
     )

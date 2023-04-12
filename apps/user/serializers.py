@@ -10,9 +10,9 @@ class UserSerializer(UserCreateSerializer):
         model = User
         fields = [
             'id',
-            'email',
             'first_name',
             'last_name',
+            'email',
             'is_active',
             'is_staff',
         ]

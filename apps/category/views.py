@@ -6,7 +6,7 @@ from .models import Category
 
 
 class ListCategoriesView(APIView):
-    #permission_classes = (permissions.AllowAny,)
+    permission_classes = (permissions.AllowAny,)
 
     def get(self, request, format=None):
         if Category.objects.all().exists():
