@@ -9,10 +9,11 @@ import { AnimatePresence } from 'framer-motion'
 import Category from 'containers/pages/Category';
 import Search from 'containers/pages/Search';
 import PostDetail from 'containers/pages/PostDetail';
-import Login from 'containers/pages/dashboard/Login';
-import BlogD from 'containers/pages/dashboard/BlogD';
+import Login from 'containers/pages/dashboard/auth/Login';
+import DashboardBlog from 'containers/pages/dashboard/DashboardBlog';
 import Dashboard from 'containers/pages/dashboard/Dashboard';
 import EditPost from 'containers/pages/dashboard/EditPost';
+import CreatePost from 'containers/pages/dashboard/CreatePost';
 
 function AnimatedRoutes(){
 
@@ -35,11 +36,9 @@ function AnimatedRoutes(){
                     {/* Dashboard */}
                     <Route path="/login" element={<Login />} />
                     <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="/blogD" element={<BlogD />} />
-                    <Route path="/blogD/:slug" element={<EditPost />} />
-
-                    
-
+                    <Route path="/dashboard-blog" element={<DashboardBlog />} />
+                    <Route path="/dashboard-blog/:slug" element={<EditPost />} />
+                    <Route path="/create-post" element={<CreatePost/>} /> 
                     
                 </Routes>
         </AnimatePresence>

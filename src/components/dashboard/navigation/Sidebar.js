@@ -22,7 +22,7 @@ function Sidebar(){
 
     const navigation = [
         { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: location.pathname==='/dashboard' ? true:false },
-        { name: 'BlogD', href: '/blogD', icon: RssIcon, current: location.pathname==='/blogD' ? true:false },
+        { name: 'Blog', href: '/dashboard-blog', icon: RssIcon, current: location.pathname==='/dashboard-blog' ? true:false },
     ]
 
     return(
@@ -32,13 +32,13 @@ function Sidebar(){
                     key={item.name}
                     to={item.href}
                     className={classNames(
-                      item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
+                      item.current ? 'bg-gray-600 text-white' : 'text-gray-200 hover:bg-gray-700 hover:text-gray-200',
                       'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
                     )}
                   >
                     <item.icon
                       className={classNames(
-                        item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500',
+                        item.current ? 'text-white' : 'text-white group-hover:text-gray-100',
                         'mr-3 flex-shrink-0 h-6 w-6'
                       )}
                       aria-hidden="true"

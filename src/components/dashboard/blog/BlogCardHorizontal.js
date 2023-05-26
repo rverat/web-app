@@ -8,7 +8,7 @@ function BlogCardHorizontal({data,index}){
     return(
         <li 
         >
-          <Link to={`/blogD/${data.slug}`}
+          <Link to={`/dashboard-blog/${data.slug}`}
               onMouseEnter={()=>{
                   // const img = document.getElementById(index)
                   // img.classList.add('object-fill')

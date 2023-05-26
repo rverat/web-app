@@ -1,33 +1,44 @@
-import { Typewriter } from 'react-simple-typewriter'
-import { Link } from 'react-router-dom'
-import code from 'assets/img/code.png'
+import { Typewriter } from "react-simple-typewriter";
+import { Link } from "react-router-dom";
+import code from "assets/img/code.png";
+
+const links = [
+  { name: "Open roles", href: "#" },
+  { name: "Internship program", href: "#" },
+  { name: "Our values", href: "#" },
+  { name: "Meet our leadership", href: "#" },
+];
+const stats = [
+  { name: "Offices worldwide", value: "12" },
+  { name: "Full-time colleagues", value: "300+" },
+  { name: "Hours per week", value: "40" },
+  { name: "Paid time off", value: "Unlimited" },
+];
 
 const navigation = {
   solutions: [
-    { name: 'Marketing', href: '#' },
-    { name: 'Analytics', href: '#' },
-    { name: 'Commerce', href: '#' },
-    { name: 'Insights', href: '#' },
+    { name: "Marketing", href: "#" },
+    { name: "Analytics", href: "#" },
+    { name: "Commerce", href: "#" },
+    { name: "Insights", href: "#" },
   ],
-  support: [
-      { name: 'Contacto', href: '/contacto' },
-  ],
+  support: [{ name: "Contacto", href: "/contacto" }],
   company: [
-      { name: 'Casos', href: '/casos' },
-      { name: 'Servicios', href: '/servicios' },
-      { name: 'Nosotros', href: '/nosotros' },
-      { name: 'Carreras', href: '/carreras' },
-      { name: 'Blog', href: '/blog' },
+    { name: "Casos", href: "/casos" },
+    { name: "Servicios", href: "/servicios" },
+    { name: "Nosotros", href: "/nosotros" },
+    { name: "Carreras", href: "/carreras" },
+    { name: "Blog", href: "/blog" },
   ],
   legal: [
-    { name: 'Claim', href: '#' },
-    { name: 'Privacy', href: '#' },
-    { name: 'Terms', href: '#' },
+    { name: "Claim", href: "#" },
+    { name: "Privacy", href: "#" },
+    { name: "Terms", href: "#" },
   ],
   social: [
     {
-      name: 'Facebook',
-      href: '#',
+      name: "Facebook",
+      href: "#",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -39,8 +50,8 @@ const navigation = {
       ),
     },
     {
-      name: 'Instagram',
-      href: '#',
+      name: "Instagram",
+      href: "#",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -52,8 +63,8 @@ const navigation = {
       ),
     },
     {
-      name: 'Twitter',
-      href: '#',
+      name: "Twitter",
+      href: "#",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
@@ -61,8 +72,8 @@ const navigation = {
       ),
     },
     {
-      name: 'GitHub',
-      href: '#',
+      name: "GitHub",
+      href: "#",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -74,8 +85,8 @@ const navigation = {
       ),
     },
     {
-      name: 'Dribbble',
-      href: '#',
+      name: "Dribbble",
+      href: "#",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -87,55 +98,87 @@ const navigation = {
       ),
     },
   ],
-}
-function Header(){
+};
 
-    
-
-    return(
-      <main>
-      <div className="relative px-6 lg:px-8">
-        <div className="mx-auto max-w-full xl:mx-12 xl:pt-40 xl:pb-64 lg:pt-40 lg:pb-48 pt-24 pb-12  ">
-          <div>
-            <div>
-              <h1 className="text-4xl font-semibold tracking-tight pb-16  sm:text-7xl">
-              Learn for <span> </span>
-              <div className='inline-flex' style={{color: 'orange'}}>
+function Header() {
+  return (
+    <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
+      <img
+        src="https://images.unsplash.com/photo-1616004667892-d348f7349d39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+        alt=""
+        className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
+      />
+      <div
+        className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
+        aria-hidden="true"
+      >
+        <div
+          className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
+          style={{
+            clipPath:
+              "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+          }}
+        />
+      </div>
+      <div
+        className="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu"
+        aria-hidden="true"
+      >
+        <div
+          className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
+          style={{
+            clipPath:
+              "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+          }}
+        />
+      </div>
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl lg:mx-0">
+          <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+            Learn for <span> </span>
+            <div className="inline-flex" style={{ color: "orange" }}>
               <Typewriter
-                        words={['Create', 'Solve', 'Share']}
-                        loop={0}
-                        cursor
-                        
-                        cursorStyle='_'
-                        typeSpeed={120}
-                        deleteSpeed={50}
-                        delaySpeed={1000}
-                        // onLoopDone={handleDone}
-                        // onType={handleType}
-                    />
-              </div>
-              </h1>
-              <p className="mt-16 text-2xl max-w-3xl leading-8 text-black ">
-              If you do not adapt to changes in technology, you will become obsolete
-              
-              </p>
-              <div className="absolute bottom-0 left-0 flex space-x-6 xl:mx-20 mx-6">
-              {navigation.social.map((item) => (
-                <a key={item.name} href={item.href} className="text-gray-900 hover:text-gray-800">
-                  <span className="sr-only">{item.name}</span>
-                  <item.icon className="h-8 w-8" aria-hidden="true" />
-                </a>
-              ))}
-              </div>
+                words={["Create", "Solve", "Share"]}
+                loop={0}
+                //cursor
+                cursorStyle="_"
+                typeSpeed={120}
+                deleteSpeed={50}
+                delaySpeed={1000}
+                //onLoopDone={handleDone}
+                // onType={handleType}
+              />
             </div>
-                 <div className="absolute inset-x-0 top-[calc(100%-20rem)] -z-10 transform-gpu overflow-hidden bg-white blur-lg lg:top-[calc(100%-45rem)] sm:top-[calc(100%-30rem)]">
-              <img src="https://bafybeicgamofiuvkc6wjxl4wwzzh6pdovhcvvyc2gw5verruiolnykzz3i.ipfs.w3s.link/bbub3.jpg" className='w-full h-full object-cover'/>
-            </div>
+          </h2>
+          <p className="mt-6 text-lg leading-8 text-gray-300">
+            If you do not adapt to changes in technology, you will become
+            obsolete.
+          </p>
+        </div>
+        <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
+          <div className="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
+            {links.map((link) => (
+              <a key={link.name} href={link.href}>
+                {link.name} <span aria-hidden="true">&rarr;</span>
+              </a>
+            ))}
           </div>
+          <dl className="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
+            {stats.map((stat) => (
+              <div key={stat.name} className="flex flex-col-reverse">
+                <dt className="text-base leading-7 text-gray-300">
+                  {stat.name}
+                </dt>
+                <dd className="text-2xl font-bold leading-9 tracking-tight text-white">
+                  {stat.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </div>
-    </main>
-    )
+    </div>
+  );
 }
 
-export default Header
+export default Header;

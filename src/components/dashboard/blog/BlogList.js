@@ -7,7 +7,7 @@ function BlogList({posts,get_blog_list_page,count}){
   console.log("print data count: " + posts)
 
     return(
-    <div className="overflow-hidden px-8 bg-white">
+    <div className="overflow-hidden px-8 bg-gray-200">
       <ul role="list" className="divide-y space-y-8 gap-8  divide-gray-200">
         {posts&&posts.map((post,index) => (
           <BlogCardHorizontal data={post} key={index} index={index}/>
